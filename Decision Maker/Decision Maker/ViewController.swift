@@ -26,8 +26,7 @@ class ViewController: UIViewController {
         print("Should you rely on these decisions? \(decisionYN)!")
     }
     
-    func randomIntFromArrayCount(_ arrayCount: Int) -> Int
-    {
+    func randomIntFromArrayCount(_ arrayCount: Int) -> Int {
         return Int(arc4random_uniform(UInt32(arrayCount)))
     }
 }
