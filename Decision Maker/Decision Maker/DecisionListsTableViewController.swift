@@ -42,12 +42,23 @@ class DecisionListsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath)
         
         let decision = decisions[indexPath.row]
-        print(decision)
+//        print(decision)
         cell.textLabel?.text = decision.first
 
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SelectionTVC") as? SelectionsTableViewController {
+            let decisionList = decisions[indexPath.row]
+            
+            viewController.decisionList = decisionList
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

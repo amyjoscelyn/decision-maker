@@ -10,21 +10,25 @@ import UIKit
 
 class SelectionsTableViewController: UITableViewController {
     
-    let yesOrNo = [ "Yes", "No" ]
+    var decisionList: [String] = []
+    var decisions: [String] = []
+    var header = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(decisionList)
+        
+        decisions = decisionList
+        header = decisions.removeFirst()
+        //print(decisions)
+        title = header
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -34,13 +38,13 @@ class SelectionsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return yesOrNo.count
+        return decisions.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "selectionCell", for: indexPath)
         
-        cell.textLabel?.text = yesOrNo[indexPath.row]
+        cell.textLabel?.text = decisions[indexPath.row]
 
         return cell
     }
@@ -95,9 +99,9 @@ class SelectionsTableViewController: UITableViewController {
     }
     
     func displayDecision() {
-        let decisionYN = yesOrNo[randomIntFromArrayCount(yesOrNo.count)]
+        let decision = decisions[randomIntFromArrayCount(decisions.count)]
         
-        let alert = UIAlertController(title: "Yes or no?", message: decisionYN, preferredStyle: .alert)
+        let alert = UIAlertController(title: header, message: decision, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Gotcha!", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Wait, try again.", style: .cancel, handler: { (_) in
             self.displayDecision()
