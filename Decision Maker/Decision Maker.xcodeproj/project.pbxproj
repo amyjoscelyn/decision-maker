@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DA988621E3FDAA90035163D /* DecisionListsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA988601E3FDAA90035163D /* DecisionListsTableViewController.swift */; };
+		3DA988631E3FDAA90035163D /* SelectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA988611E3FDAA90035163D /* SelectionsTableViewController.swift */; };
 		3DD997E51E3E72A300CEAB92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD997E41E3E72A300CEAB92 /* AppDelegate.swift */; };
 		3DD997E71E3E72A300CEAB92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD997E61E3E72A300CEAB92 /* ViewController.swift */; };
 		3DD997EA1E3E72A300CEAB92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DD997E81E3E72A300CEAB92 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3DA988601E3FDAA90035163D /* DecisionListsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecisionListsTableViewController.swift; sourceTree = "<group>"; };
+		3DA988611E3FDAA90035163D /* SelectionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionsTableViewController.swift; sourceTree = "<group>"; };
 		3DD997E11E3E72A300CEAB92 /* Decision Maker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Decision Maker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DD997E41E3E72A300CEAB92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DD997E61E3E72A300CEAB92 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 			children = (
 				3DD997E41E3E72A300CEAB92 /* AppDelegate.swift */,
 				3DD997E61E3E72A300CEAB92 /* ViewController.swift */,
+				3DA988601E3FDAA90035163D /* DecisionListsTableViewController.swift */,
+				3DA988611E3FDAA90035163D /* SelectionsTableViewController.swift */,
 				3DD997E81E3E72A300CEAB92 /* Main.storyboard */,
 				3DD997EB1E3E72A300CEAB92 /* Assets.xcassets */,
 				3DD997ED1E3E72A300CEAB92 /* LaunchScreen.storyboard */,
@@ -139,6 +145,8 @@
 			files = (
 				3DD997E71E3E72A300CEAB92 /* ViewController.swift in Sources */,
 				3DD997E51E3E72A300CEAB92 /* AppDelegate.swift in Sources */,
+				3DA988631E3FDAA90035163D /* SelectionsTableViewController.swift in Sources */,
+				3DA988621E3FDAA90035163D /* DecisionListsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +310,7 @@
 				3DD997F51E3E72A300CEAB92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
