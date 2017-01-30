@@ -1,5 +1,5 @@
 //
-//  SelectionsTableViewController.swift
+//  DecisionListsTableViewController.swift
 //  Decision Maker
 //
 //  Created by Amy Joscelyn on 1/29/17.
@@ -8,23 +8,24 @@
 
 import UIKit
 
-class SelectionsTableViewController: UITableViewController {
+class DecisionListsTableViewController: UITableViewController {
     
-    let yesOrNo = [ "Yes", "No" ]
-
+    var decisions: [[String]] = []
+    
+    let yesOrNo = [ "Yes or No?", "Yes", "No" ]
+    let takeout = [ "Tonight's Dinner", "Thai", "Greek", "Indian", "Pizza", "Diner", "Mexican", "home-cooked meal", "Chinese", "burgers", "barbecue" ]
+    let intervals = [ "Interval to focus on next", "unison", "m2", "M2", "m3", "M3", "P4", "A4/d5", "P5", "m6", "M6", "m7", "M7", "octave", "m9", "M9", "m10", "M10" ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        decisions = [ yesOrNo, takeout, intervals ]
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -34,13 +35,15 @@ class SelectionsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return yesOrNo.count
+        return decisions.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "selectionCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath)
         
-        cell.textLabel?.text = yesOrNo[indexPath.row]
+        let decision = decisions[indexPath.row]
+        print(decision)
+        cell.textLabel?.text = decision.first
 
         return cell
     }
@@ -90,22 +93,4 @@ class SelectionsTableViewController: UITableViewController {
     }
     */
 
-    @IBAction func chooseButtonTapped(_ sender: Any) {
-        displayDecision()
-    }
-    
-    func displayDecision() {
-        let decisionYN = yesOrNo[randomIntFromArrayCount(yesOrNo.count)]
-        
-        let alert = UIAlertController(title: "Yes or no?", message: decisionYN, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Gotcha!", style: .default, handler: nil))
-        alert.addAction(UIAlertAction(title: "Wait, try again.", style: .cancel, handler: { (_) in
-            self.displayDecision()
-        }))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func randomIntFromArrayCount(_ arrayCount: Int) -> Int {
-        return Int(arc4random_uniform(UInt32(arrayCount)))
-    }
 }
